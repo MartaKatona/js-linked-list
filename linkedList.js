@@ -33,24 +33,69 @@ return {
       }
     return _newNode;
   },
-  remove: function (number) {
-    // body...
+  remove: function (index) {
+    const indexNode = this.get(index);
+    if (index === 0) {
+      if (_head.next === null){
+        _head = null;
+        _tail = null;
+      } else {
+          _head = _head.next;
+      }
+      return;
+    }
+    if ( indexNode !== false ) {
+      const prevNode = this.get(index-1);
+      prevNode.next = indexNode.next;
+      if ( indexNode.next === null) {
+        _tail = prevNode;
+      }
+    } else {
+      return false;
+    }
   },
-  get: function (number) {
-    // body...
+  get: function (index) {
+    let counter = 0;
+    let foundNode = {};
+    foundNode.value = _head.value;
+    foundNode.next = _head.next;
+
+    while ( counter < index && foundNode.next !== null) {
+        foundNode = foundNode.next;
+        counter ++;
+    }
+
+    if (counter === index) {
+      return foundNode;
+    } else {
+      return false;
+    }
   },
-  insert: function (value, number) {
-    // body...
-  }
+  insert: function (value, index) {
+    const insertNode = {};
+    const beforeNode = this.get(index-1);
+    console.log('value and index: ', value, index);
+    console.log('before node: ', beforeNode);
+
+    if ((beforeNode.next) !== null && (index > 0)) {
+      insertNode.value = value;
+      insertNode.next = beforeNode.next;
+      console.log('insertNode after put next:::', insertNode);
+      beforeNode.next = insertNode;
+      console.log('inside first if after insert before Node:', beforeNode);
+      console.log('inside first if after insert Insert Node:', insertNode.next);
+    } else {
+      if (index === 0) {
+        insertNode.next = null;
+        head.next = insertNode;
+        _head = insertNode;
+      } else {
+          return false;
+        }
+      return false;
+    }
+  } // eof insert
 };
 }
 
-//let listGen = linkedListGenerator();
-
-//let myHead = listGen.getHead();
-
-
-
-  // add
-  // add.()
 
