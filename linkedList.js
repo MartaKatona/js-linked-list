@@ -5,13 +5,8 @@
  */
 function linkedListGenerator(){
   //let _linkedList = {};
-  let _head = null; // _ mans private
+  let _head = null;
   let _tail = null;
-
-  //define the head like empty node
-  //define the tail like empty node
-
-
 
 return {
   getHead: function () {
@@ -101,33 +96,6 @@ return {
         prevNode.next = newNode;
         newNode.next = currNode;
     }
-
-
-
-// const insertNode = {};
-    // const beforeNode = this.get(index-1);
-    // console.log('value and index: ', value, index);
-    // console.log('before node before manipulation : ', beforeNode);
-
-    // if ((beforeNode.next) !== null ) { //&& (index > 0)
-    //   insertNode.value = value;
-    //   insertNode.next = beforeNode.next;
-    //   console.log('insertNode after put next:::', insertNode);
-    //   beforeNode.next = insertNode;
-    //   console.log('inside first if after insert before Node:', beforeNode);
-    //   console.log('inside first if after insert Insert Node:', insertNode);
-    //   if ((index-1) === 0 ) {
-    //      _head = beforeNode;
-    //   }
-    //   if (index === 0) {
-    //      insertNode.next = null;
-    //      head.next = insertNode;
-    //      _head = insertNode;
-    //   }
-    // } else {
-    //     return false;
-    //  }
-
   } // eof insert
 };
 }
